@@ -19,6 +19,11 @@ public abstract class Piece {
     protected final Alliance pieceAlliance;
 
     /**
+     * Determine if it is the first move.
+     */
+    protected final boolean isFirstMove;
+
+    /**
      * The constructor of Piece class.
      * @param piecePosition the piece position.
      * @param pieceAlliance the piece color.
@@ -26,6 +31,8 @@ public abstract class Piece {
     Piece(final int piecePosition, final Alliance pieceAlliance) {
         this.pieceAlliance = pieceAlliance;
         this.piecePosition = piecePosition;
+        // TODO more work to do!!!
+        this.isFirstMove = false;
     }
 
     /**
@@ -34,6 +41,14 @@ public abstract class Piece {
      */
     public Alliance getPieceAlliance() {
         return this.pieceAlliance;
+    }
+
+    /**
+     * Check if it is the first move.
+     * @return true if it is the first move.
+     */
+    public boolean isFirstMove() {
+        return this.isFirstMove;
     }
 
     /**

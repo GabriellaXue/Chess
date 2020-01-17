@@ -27,10 +27,47 @@ public class BoardUtils {
     public static final boolean[] EIGHTH_COLUMN = initColumn(7);
 
     /**
+     * A list of booleans that only the first row with true value, others are false.
+     */
+    public static final boolean[] FIRST_ROW = initRow(0);
+
+    /**
+     * A list of booleans that only the second row with true value, others are false.
+     */
+    public static final boolean[] SECOND_ROW  = initRow(1);
+
+    /**
+     * A list of booleans that only the seventh row with true value, others are false.
+     */
+    public static final boolean[] SEVENTH_ROW = initRow(6);
+
+    /**
+     * A list of booleans that only the eighth row with true value, others are false;
+     */
+    public static final boolean[] EIGHTH_ROW = initRow(7);
+
+    /**
      * The constructor.
      */
     private BoardUtils() {
         throw new RuntimeException("You cannot instantiate me!");
+    }
+
+    /**
+     * A list of booleans that only the selected row with true value, others are false.
+     * @param rowNumber the row number.
+     * @return a list of booleans.
+     */
+    private static boolean[] initRow(int rowNumber) {
+        final boolean[] resultRow = new boolean[NUM_TILES];
+        int rowNumberOnBoard = NUM_TILES_PER_ROW * rowNumber;
+        final int initialPosition = rowNumberOnBoard;
+        final int endPoint = initialPosition + NUM_TILES_PER_ROW;
+        do {
+            resultRow[rowNumberOnBoard] = true;
+            rowNumberOnBoard += 1;
+        } while (rowNumberOnBoard < endPoint);
+        return resultRow;
     }
 
     /**
